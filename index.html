@@ -19,9 +19,10 @@ a:focus-visible{outline:2px solid #b9d3e8;outline-offset:3px}
 .intro{border-color:#3d566b}.intro .feature-art{display:grid;place-items:center;background:radial-gradient(circle at 50% 50%,#264057,transparent 60%),linear-gradient(135deg,#1b2f40,#0b1219)}.intro .feature-art:before,.intro .feature-art:after{display:none}
 .play{position:relative;z-index:1;width:88px;height:88px;border-radius:50%;background:var(--red);display:grid;place-items:center;box-shadow:0 0 0 10px rgba(200,32,43,.25);transition:transform .2s}.play:after{content:"";margin-left:7px;border-left:26px solid #fff;border-top:16px solid transparent;border-bottom:16px solid transparent}
 .intro:hover .play,.intro:focus-visible .play{transform:scale(1.08)}.intro .text-link{border-color:var(--red)}
+.more{display:flex;justify-content:center;margin:22px 0}.more .btn{cursor:pointer;font-family:inherit}.vgrid{display:none;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 0 22px}.vgrid.open{display:grid}.vcard{border:1px solid var(--line);background:var(--panel);display:block}.vcard:hover{border-color:#516b80}.vcard img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#182532}.vcard span{display:block;padding:12px 14px;font-size:13px;line-height:1.45}.vmsg{grid-column:1/-1;color:var(--muted);font-size:14px;margin:0}.vmsg a{color:#d8e8f4;border-bottom:1px solid #69869d}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.tile{border:1px solid var(--line);background:var(--panel);padding:24px}.tile .number{font-size:11px;color:#7798b1;letter-spacing:2px}.tile h3{font-size:18px;margin:12px 0 8px}.tile p{color:var(--muted);font-size:13px;margin:0}.about{background:#101923;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.about p{color:var(--muted)}.pillars{display:grid;gap:12px}.pillar{padding:17px 19px;border:1px solid var(--line);background:#131f2a}.pillar strong{display:block;font-size:13px}.pillar span{color:var(--muted);font-size:12px}
 footer{padding:30px 0;color:#8798a7;font-size:11px}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px}
-@media(max-width:760px){.nav{height:auto;padding:12px 0}.brand img{height:40px}.navlinks{gap:12px;flex-wrap:wrap;justify-content:flex-end;font-size:11px}.hero{padding:60px 0}.feature,.about-grid{grid-template-columns:1fr}.feature-art{min-height:230px}.grid{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}.wrap{width:min(100% - 28px,1120px)}.about-grid{gap:25px}}
+@media(max-width:760px){.nav{height:auto;padding:12px 0}.brand img{height:40px}.navlinks{gap:12px;flex-wrap:wrap;justify-content:flex-end;font-size:11px}.hero{padding:60px 0}.feature,.about-grid{grid-template-columns:1fr}.feature-art{min-height:230px}.grid,.vgrid{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}.wrap{width:min(100% - 28px,1120px)}.about-grid{gap:25px}}
 @media(prefers-reduced-motion:reduce){.play{transition:none}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -34,7 +35,8 @@ footer{padding:30px 0;color:#8798a7;font-size:11px}.foot{display:flex;justify-co
 <section class="hero"><div class="wrap"><div class="eyebrow">Defence · Technology · Strategy</div><h1>Understanding the Future of Defence.</h1><p>Exploring military technology, naval power, defence systems, and strategic developments shaping the modern world.</p><div class="actions"><a class="btn" href="#analysis">EXPLORE OUR ANALYSIS ↗</a><a class="btn secondary" href="#about">ABOUT SENTINEL</a></div></div></section>
 <section class="section wrap" id="analysis"><div class="section-head"><div><div class="eyebrow">Featured coverage</div><h2>Latest Analysis</h2></div><div class="section-intro">In-depth looks at platforms, capabilities, and the technology behind modern defence.</div></div>
 <a class="feature intro" href="https://youtu.be/egFGt1zRPXs" target="_blank" rel="noopener" aria-label="Watch the Sentinel Defence Review intro video on YouTube"><div class="feature-art"><span class="art-label">CHANNEL INTRO</span><span class="play" aria-hidden="true"></span></div><div class="feature-copy"><div class="tag">Start here</div><h3>Welcome to Sentinel Defence Review</h3><p>New to the channel? Watch our intro to see what we cover and how we explain modern defence platforms and technology.</p><span class="text-link">WATCH INTRO VIDEO ↗</span></div></a>
-<article class="feature"><a class="feature-art" href="https://youtu.be/OcsVabQYyZs" target="_blank" rel="noopener" aria-label="Watch Mogami vs. Arrowhead 140 on YouTube" aria-label="Stylized illustration of a modern naval frigate at sea"><span class="art-label">NAVAL SYSTEMS / COMPARISON</span></a><div class="feature-copy"><div class="tag">Featured video</div><h3>Head-to-Head: The Upgraded Mogami vs. Arrowhead 140</h3><p>A closer look at two modern frigate designs, their capabilities, and the approaches shaping next-generation naval forces.</p><a class="text-link" href="https://youtu.be/OcsVabQYyZs" target="_blank" rel="noopener">WATCH ON YOUTUBE ↗</a></div></article>
+<div class="more"><button class="btn" id="moreBtn" type="button" aria-expanded="false" aria-controls="vgrid">SEE MORE VIDEOS ↓</button></div>
+<div class="vgrid" id="vgrid" aria-live="polite"></div>
 </section>
 <section class="section wrap" id="focus"><div class="section-head"><div><div class="eyebrow">What we cover</div><h2>Our Focus</h2></div></div><div class="grid">
 <article class="tile"><div class="number">01 / NAVAL POWER</div><h3>Ships & Maritime Strategy</h3><p>Frigates, destroyers, submarines, and the evolving role of naval forces.</p></article>
@@ -45,5 +47,30 @@ footer{padding:30px 0;color:#8798a7;font-size:11px}.foot{display:flex;justify-co
 <section class="section wrap" id="contact"><div class="eyebrow">Stay connected</div><h2>Follow Sentinel Defence Review</h2><p class="section-intro">Watch our videos and follow future coverage on our channel.</p><div class="actions"><a class="btn" href="https://www.youtube.com/channel/UCbPVIkmzQ7MI4W5U9Ldt9gg" target="_blank" rel="noopener">VISIT YOUTUBE CHANNEL ↗</a></div></section>
 </main>
 <footer><div class="wrap foot"><span>© <span id="year">2026</span> Sentinel Defence Review. All rights reserved.</span><span>Independent defence-focused media project.</span></div></footer>
-<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+<script>
+document.getElementById("year").textContent=new Date().getFullYear();
+(function(){
+var CH="UCbPVIkmzQ7MI4W5U9Ldt9gg",btn=document.getElementById("moreBtn"),grid=document.getElementById("vgrid"),loaded=false;
+function msg(t){grid.innerHTML="";var p=document.createElement("p");p.className="vmsg";p.textContent=t+" ";var a=document.createElement("a");a.href="https://www.youtube.com/channel/"+CH+"/videos";a.target="_blank";a.rel="noopener";a.textContent="Open our YouTube channel";p.appendChild(a);grid.appendChild(p)}
+function load(){
+msg("Loading videos...");
+var rss="https://www.youtube.com/feeds/videos.xml?channel_id="+CH;
+fetch("https://api.rss2json.com/v1/api.json?rss_url="+encodeURIComponent(rss)).then(function(r){return r.json()}).then(function(d){
+if(!d.items||!d.items.length)throw 0;
+grid.innerHTML="";
+d.items.forEach(function(v){
+var m=(v.link||"").match(/[?&]v=([^&]+)/);if(!m)return;
+var a=document.createElement("a");a.className="vcard";a.href=v.link;a.target="_blank";a.rel="noopener";
+var i=document.createElement("img");i.loading="lazy";i.alt="";i.src="https://i.ytimg.com/vi/"+m[1]+"/hqdefault.jpg";
+var t=document.createElement("span");t.textContent=v.title;
+a.appendChild(i);a.appendChild(t);grid.appendChild(a)});
+var p=document.createElement("p");p.className="vmsg";var l=document.createElement("a");l.href="https://www.youtube.com/channel/"+CH+"/videos";l.target="_blank";l.rel="noopener";l.textContent="See every video on YouTube";p.appendChild(l);grid.appendChild(p);loaded=true
+}).catch(function(){msg("We couldn't load the videos right now.")})}
+btn.addEventListener("click",function(){
+var open=grid.classList.toggle("open");
+btn.setAttribute("aria-expanded",open);
+btn.textContent=open?"HIDE VIDEOS ↑":"SEE MORE VIDEOS ↓";
+if(open&&!loaded)load()})
+})();
+</script>
 </body></html>
